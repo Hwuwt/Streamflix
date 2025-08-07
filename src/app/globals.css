@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+  --color-teal-500: oklch(0.4209 0.0525 228.22);
+  --color-teal-600: oklch(0.3316 0.0356 222.19);
+  --color-teal-700: oklch(0.2321 0.0264 226.41);
+  --color-mint-100: oklch(0.9756 0.0295 178.37);
+  --color-mint-200: oklch(0.7161 0.0602 187.63)
+}
+
+@layer components {
+  .bg {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, var(--color-teal-500), var(--color-teal-600), var(--color-teal-700));
+  }
+  .text-main {
+    font-weight: bold;
+    background-clip: text;
+    color: transparent;
+    background: linear-gradient(to bottom, var(--color-mint-100), var(--color-mint-200));
+  }
+}
