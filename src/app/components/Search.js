@@ -9,10 +9,11 @@ export default function Search({ searchTerm, setSearchTerm}) {
             </div>
             <input 
             placeholder="Search for a movie" 
-            type="text" 
-            onChange={(e) => setSearchTerm(e.value)}
+            type="search"
+            aria-label="Search for a movie"
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="text-2xl text-mint-100 p-2 h-10 w-full outline-none">
-            {searchTerm}</input>
+            </input>
         </div>
     )
 }
