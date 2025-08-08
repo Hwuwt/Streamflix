@@ -22,3 +22,7 @@
     background: linear-gradient(to bottom, var(--color-mint-100), var(--color-mint-200));
   }
 }
+
+body {
+  background-color: var(--color-teal-700);
+}
