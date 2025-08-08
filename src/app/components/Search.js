@@ -12,7 +12,7 @@ export default function Search({ searchTerm, setSearchTerm}) {
             type="search"
             aria-label="Search for a movie"
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="text-2xl text-mint-100 p-2 h-10 w-full outline-none">
+            className="text-xl text-mint-100 p-2 h-10 w-full outline-none">
             </input>
         </div>
     )
