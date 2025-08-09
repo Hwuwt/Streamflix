@@ -1,5 +1,5 @@
 import Image from "next/image"
-import SearchSvg from "./svg/searchSvg"
+import SearchSvg from "./svg/SearchSvg"
 
 export default function Search({ searchTerm, setSearchTerm}) {
     return (
