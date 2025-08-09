@@ -6,6 +6,7 @@ import Image from "next/image";
 import SpinnerSvg from "@/app/components/svg/spinnerSvg";
 import { useRouter } from 'next/navigation'
 import VideoPlayer from "@/app/components/VideoPlayer";
+import StartSvg from "@/app/components/svg/StartSvg";
 
 export default function MoviePage() {
     const { id } = useParams();
@@ -13,6 +14,7 @@ export default function MoviePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState();
     const [videoPlayerActive, setVideoPlayerActive] = useState(false);
+    const [isTherePoster, setIsTherePoster] = useState();
     const router = useRouter();
 
     useEffect(() => {
@@ -44,7 +46,8 @@ export default function MoviePage() {
                                     <h1 className="text-7xl text-mint-100 text-shadow-lg">{movie.title} </h1>
                                 </div>
                                 <div className="flex gap-2 text-center items-center justify-center">
-                                    <p className="text-xl text-mint-200">{movie.vote_average.toFixed(1)}</p>
+                                    <StartSvg width={"15px"} />
+                                    <p className="text-xl text-mint-100">{movie.vote_average.toFixed(1)}</p>
                                     <span className='text-teal-700'>•</span>
                                     <p className="text-xl text-teal-700">{movie.release_date}</p>
                                     <span className='text-teal-700'>•</span>

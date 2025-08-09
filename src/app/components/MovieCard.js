@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import StartSvg from './svg/StartSvg'
 
 export default function MovieCard({onClick, movie: { title, release_date, poster_path, vote_average, original_language }}) {
     return (
@@ -10,7 +11,8 @@ export default function MovieCard({onClick, movie: { title, release_date, poster
                 <div className='flex h-15 items-center'>
                     <h3 className='text-mint-100 font-bold text-lg whitespace-nowrap overflow-hidden text-ellipsis'>{title}</h3>
                 </div>
-                <div className='flex justify-start'>
+                <div className='flex justify-start items-center'>
+                    <StartSvg width={"15px"} />
                     <p className='text-mint-100 mx-2'>{vote_average.toFixed(1)}</p>
                     <span className='text-teal-700'>•</span>
                     <p className='text-teal-700 mx-2'>{original_language || "N/A"}</p>
