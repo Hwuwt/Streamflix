@@ -1,16 +1,18 @@
 "use client"
 import { useParams } from "next/navigation";
 import fetchMoviesById from '@/app/utils/fetchMovieById'
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import SpinnerSvg from "@/app/components/svg/spinnerSvg";
 import { useRouter } from 'next/navigation'
+import VideoPlayer from "@/app/components/VideoPlayer";
 
 export default function MoviePage() {
     const { id } = useParams();
     const [movie, setMovie] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState();
+    const [videoPlayerActive, setVideoPlayerActive] = useState(false);
     const router = useRouter();
 
     useEffect(() => {
@@ -19,6 +21,9 @@ export default function MoviePage() {
 
 
     return (
+        <>
+        {videoPlayerActive && <VideoPlayer setVideoPlayerActive={setVideoPlayerActive} src={`https://vidsrc.to/embed/movie/${id}`} />}
+        {!videoPlayerActive && 
         <div className="bg flex-col justify-center items-center">
             <div className="flex h-20 items-center justify-center mb-64">
                 <h1 onClick={() => router.push("/")} className="text-main bg-clip-text text-2xl cursor-pointer">Streamflix</h1>
@@ -50,11 +55,12 @@ export default function MoviePage() {
                                 <p className="text-lg text-teal-700 text-shadow-sm">{movie.overview}</p>
                             </div>
                             <div>
-                                <button className="w-40 h-15 bg-mint-100 text-teal-700 font-bold text-2xl rounded-4xl cursor-pointer hover:bg-mint-200 transition-all active:bg-teal-500">Watch</button>
+                                <button onClick={() => setVideoPlayerActive(true)} className="w-40 h-15 bg-mint-100 text-teal-700 font-bold text-2xl rounded-4xl cursor-pointer hover:bg-mint-200 transition-all active:bg-teal-500">Watch</button>
                             </div>
                         </div>
                     </div>}
             </div>
-        </div>
+        </div>}
+        </> 
     )
 }
