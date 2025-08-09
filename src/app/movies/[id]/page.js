@@ -3,7 +3,7 @@ import { useParams } from "next/navigation";
 import fetchMoviesById from '@/app/utils/fetchMovieById'
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import SpinnerSvg from "@/app/components/svg/spinnerSvg";
+import SpinnerSvg from "@/app/components/svg/SpinnerSvg";
 import { useRouter } from 'next/navigation'
 import VideoPlayer from "@/app/components/VideoPlayer";
 import StartSvg from "@/app/components/svg/StartSvg";
