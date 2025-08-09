@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-export default function MovieCard({ movie: { title, release_date, poster_path, vote_average, original_language }}) {
+export default function MovieCard({onClick, movie: { title, release_date, poster_path, vote_average, original_language }}) {
     return (
-        <div className='flex flex-col w-70 h-120 p-5 bg-teal-500 rounded-2xl cursor-pointer'>
+        <div className='flex flex-col w-70 h-120 p-5 bg-teal-500 rounded-2xl cursor-pointer' onClick={onClick}>
             <div className='h-[360px]'>
                 <Image className='rounded-xl' width={240} height={360} src={poster_path ? `https://image.tmdb.org/t/p/w500${poster_path}` : '/BackupPoster.webp'} alt='poster'/>
             </div>

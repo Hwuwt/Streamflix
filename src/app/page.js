@@ -1,6 +1,7 @@
 "use client"
 import Search from "./components/Search";
 import { useState, useEffect } from "react"
+import { useRouter } from 'next/navigation'
 import fetchMovies from "./utils/fetchMovies";
 import MovieCard from "./components/MovieCard";
 
@@ -10,6 +11,7 @@ export default function Home() {
   const [moviesLoaded, setMoviesLoaded] = useState(false)
   const [movies, setMovies] = useState(null);
   const [sortedMovies, setSortedMovies] = useState(null);
+  const router = useRouter();
 
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export default function Home() {
       <div className="w-[90%] mx-auto mt-30">
         <div className="flex flex-wrap gap-4 items-center justify-center">
         {sortedMovies.results.map((m, i) => {
-          return <MovieCard key={i} movie={m} />
+          return <MovieCard key={i} movie={m} onClick={() => {router.push(`/movies/${m.id}`)}}/>
         })}
       </div>
       </div>}
