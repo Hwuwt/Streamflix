@@ -1,10 +1,10 @@
 "use client"
-import Search from "./components/Search";
+import Search from "../components/Search";
 import { useState, useEffect } from "react"
 import { useRouter } from 'next/navigation'
-import fetchMovies from "./utils/fetchMovies";
-import MovieCard from "./components/MovieCard";
-import SpinnerSvg from "./components/svg/SpinnerSvg";
+import fetchMovies from "../utils/fetchMovies";
+import MovieCard from "../components/MovieCard";
+import SpinnerSvg from "../components/svg/SpinnerSvg";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
