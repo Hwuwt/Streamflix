@@ -30,12 +30,9 @@ export default function MoviePage() {
         <>
         {videoPlayerActive && <VideoPlayer setVideoPlayerActive={setVideoPlayerActive} src={`https://vidsrc.to/embed/movie/${id}`} />}
         {!videoPlayerActive && 
-        <div className={`flex-col justify-center items-center h-screen ${movie?.backdrop_path ? "relative bg-cover bg-center" : "bg"}`} style={movie?.backdrop_path ? { backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})` } : {}}>
+        <div className={`flex-col justify-center items-center h-screen pt-80 ${movie?.backdrop_path ? "relative bg-cover bg-center" : "bg"}`} style={movie?.backdrop_path ? { backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})` } : {}}>
             <div className="bg-black/50 absolute inset-0"></div>
-            <div className="flex h-20 items-center justify-center mb-64 z-10 relative">
-                <h1 onClick={() => router.push("/")} className="text-main bg-clip-text text-2xl cursor-pointer">Streamflix</h1>
-            </div>
-            <div className="flex justify-center items-center z-10 relative">
+            <div className="flex justify-center items-center relative">
                 {isLoading ? <SpinnerSvg /> :
                     <div className="flex w-5xl">
                         <div className="w-[412] shrink-0 pr-14">

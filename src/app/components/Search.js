@@ -3,7 +3,7 @@ import SearchSvg from "./svg/SearchSvg"
 
 export default function Search({ searchTerm, setSearchTerm}) {
     return (
-        <div className="w-[60%] h-14 bg-teal-500 mx-auto flex p-2 justify-start text-center rounded-lg">
+        <div className="w-[1044px] h-14 bg-teal-500 mx-auto flex p-2 justify-start text-center rounded-lg">
             <div>
                 <SearchSvg className="h-10 w-10 text-teal-700"/>
             </div>

@@ -39,17 +39,18 @@ export default function Home() {
 
   return (
     <div className="bg flex flex-col text-center">
-      <h1 className="text-9xl my-40 bg-clip-text text-main">Streamflix</h1>
-      <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
-      <div className="w-[90%] mx-auto mt-30">
-          {isLoading ? <div className="flex items-center justify-center"> <SpinnerSvg /> </div> : sortedMovies?.results?.length > 0 &&
-          <div>
-            <div className="flex flex-wrap gap-4 items-center justify-center">
-            {sortedMovies.results.map((m, i) => {
-              return <MovieCard key={i} movie={m} onClick={() => {router.push(`/movies/${m.id}`)}}/>
-            })}
-            </div>
-        </div>}
+      <div className="mt-40">
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+        <div className="w-[90%] mx-auto mt-30">
+            {isLoading ? <div className="flex items-center justify-center"> <SpinnerSvg /> </div> : sortedMovies?.results?.length > 0 &&
+            <div>
+              <div className="flex flex-wrap gap-4 items-center justify-center">
+              {sortedMovies.results.map((m, i) => {
+                return <MovieCard key={i} movie={m} onClick={() => {router.push(`/movies/${m.id}`)}}/>
+              })}
+              </div>
+          </div>}
+        </div>
       </div>
     </div>
   )
