@@ -1,5 +1,7 @@
+"use client"
 import { Geist, Geist_Mono } from "next/font/google";
 import Header from "./components/Header";
+import { usePathname } from "next/navigation";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,19 +14,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "streamflix",
-  description: "Movie streaming site",
-};
 
 export default function RootLayout({ children }) {
+  const pathName = usePathname();
+  const hideHeader = pathName?.startsWith("/watch")
+  
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
+        {!hideHeader && <Header />}
+        <main>{children}</main>
       </body>
     </html>
   );

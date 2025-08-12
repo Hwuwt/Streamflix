@@ -3,7 +3,7 @@ export default async function fetchMoviesById(id, setMovie, setErrorMessage, set
 
     try {
 
-        const res = await fetch(`../api/movies/search/${id}`);
+        const res = await fetch(`../api/movies/search/tmdb/${id}`);
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
         setMovie(data)

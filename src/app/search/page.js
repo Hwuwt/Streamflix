@@ -8,7 +8,7 @@ import SpinnerSvg from "../components/svg/SpinnerSvg";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsloading] = useState(false);
   const [movies, setMovies] = useState(null);
   const [sortedMovies, setSortedMovies] = useState(null);
@@ -38,7 +38,9 @@ export default function Home() {
 
 
   return (
-    <div className="bg flex flex-col text-center">
+    <>
+      {errorMessage ? <h1 className="text-red-500 text-8xl text-center">Error: {errorMessage}</h1> : 
+      <div className="bg flex flex-col text-center">
       <div className="mt-40">
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
         <div className="w-[90%] mx-auto mt-30">
@@ -53,5 +55,7 @@ export default function Home() {
         </div>
       </div>
     </div>
+    }
+    </>
   )
 }
